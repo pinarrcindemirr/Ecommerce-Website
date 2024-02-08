@@ -1,0 +1,25 @@
+table {
+    width: 100%; /* Tablonun tam genişlikte olmasını sağlar */
+    border-collapse: collapse; /* Kenarlıkların birleşmesini sağlar */
+  }
+  
+  table, th, td {
+    border: 1px solid black; /* Kenarlık rengi ve kalınlığı */
+  }
+  
+  th, td {
+    padding: 8px; /* Hücre içi boşluk */
+    text-align: left; /* Metin hizalama */
+  }
+  
+  thead {
+    background-color: #f2f2f2; /* Başlık arkaplan rengi */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9; /* Çift satırlar için arkaplan rengi */
+  }
+  
+  tr:hover {
+    background-color: #ddd; /* Üzerine gelindiğinde satır rengi */
+  }

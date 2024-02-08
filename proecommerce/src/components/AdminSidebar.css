@@ -1,0 +1,49 @@
+
+.admin-sidebar {
+    width: 150px; /* Sidebar genişliği */
+    height: 90vh; /* Tam ekran yüksekliği */
+    position: fixed; /* Sabit pozisyon */
+    left: 0; /* Sol tarafa yasla */
+    top: 18vh; /* Üst tarafa yasla */
+    background-color: #333; /* Koyu arka plan rengi */
+    color: white; /* Metin rengi */
+    padding: 15px; /* İç boşluk */
+    overflow-y: auto; /* Dikey kaydırma */
+  }
+  /* Sidebar Başlık */
+  .admin-sidebar-header {
+    padding: 15px 0; /* Üst ve alt boşluk */
+    text-align: center; /* Başlığı ortala */
+    border-bottom: 1px solid #444; /* Alt çizgi */
+    margin-bottom: 10px; /* Alt öğelerden boşluk */
+  }
+  
+  /* Sidebar Listesi */
+  .admin-sidebar ul {
+    list-style-type: none; /* Liste stili */
+    padding: 0; /* Sıfır padding */
+    margin: 0; /* Sıfır margin */
+  }
+  
+  /* Sidebar Liste Öğesi */
+  .admin-sidebar li {
+    padding: 10px; /* İç boşluk */
+    border-bottom: 1px solid #444; /* Alt çizgi */
+    cursor: pointer; /* Fare imleci */
+  }
+  
+  .admin-sidebar li:hover {
+    background-color: #555; /* Üzerine gelince arka plan rengi */
+  }
+  
+  /* Sidebar Link */
+  .admin-sidebar a {
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    color: white; /* Metin rengi */
+    display: block; /* Blok düzeyinde göster */
+  }
+  
+  .admin-sidebar-icon {
+    margin-right: 10px; /* Simgeden sonra boşluk */
+  }
+  

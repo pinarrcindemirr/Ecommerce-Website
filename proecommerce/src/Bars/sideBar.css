@@ -1,0 +1,216 @@
+
+.linkTo{
+  text-decoration: none;
+}
+
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px; /* Sidebar genişliği */
+  height: 5vh; /* Tam ekran yüksekliği */
+  position: fixed; /* Sabit pozisyon */
+  left: 0; /* Sol tarafa yasla */
+  top: 7%; /* Üst tarafa yasla */
+  background-color: #333; /* Koyu arka plan rengi */
+  color: white; /* Metin rengi */
+  padding: 15px; /* İç boşluk */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+
+/* Sidebar Container */
+.navbar1 {
+  width: 1250px; /* Sidebar genişliği */
+  height: 2vh; /* Tam ekran yüksekliği */
+  position: fixed; /* Sabit pozisyon */
+  left: 0; /* Sol tarafa yasla */
+  top: 0; /* Üst tarafa yasla */
+  background-color: #000000; /* Koyu arka plan rengi */
+  color: white; /* Metin rengi */
+  padding: 15px; /* İç boşluk */
+}
+.navbar1-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.navbar1-content span + span {
+  margin-left: 20px; /* İlk span'dan sonraki her span için sola boşluk ekler */
+}
+.main{
+  width: 1040px; 
+
+  position: fixed; /* Sabit pozisyon */
+  left: 190px; /* Sol tarafa yasla */
+  top: 18vh; /* Üst tarafa yasla */
+  padding-top: 20px; /* Üstten boşluk */
+  margin-right: 20px; /* Sağdan boşluk */
+  height: calc(85vh - 50px);
+}
+.main-content, .main {
+  /* ... diğer stilleriniz */
+  overflow-y: auto; /* İçerik yüksekliği container'ı aştığında dikey kaydırma çubuğu ekler */
+}
+
+.sidebar {
+  width: 150px; /* Sidebar genişliği */
+  height: 90vh; /* Tam ekran yüksekliği */
+  position: fixed; /* Sabit pozisyon */
+  left: 0; /* Sol tarafa yasla */
+  top: 18vh; /* Üst tarafa yasla */
+  background-color: #333; /* Koyu arka plan rengi */
+  color: white; /* Metin rengi */
+  padding: 15px; /* İç boşluk */
+  overflow-y: auto; /* Dikey kaydırma */
+}
+/* Sidebar Başlık */
+.sidebar-header {
+  padding: 15px 0; /* Üst ve alt boşluk */
+  text-align: center; /* Başlığı ortala */
+  border-bottom: 1px solid #444; /* Alt çizgi */
+  margin-bottom: 10px; /* Alt öğelerden boşluk */
+}
+
+/* Sidebar Listesi */
+.sidebar ul {
+  list-style-type: none; /* Liste stili */
+  padding: 0; /* Sıfır padding */
+  margin: 0; /* Sıfır margin */
+}
+
+/* Sidebar Liste Öğesi */
+.sidebar li {
+  padding: 10px; /* İç boşluk */
+  border-bottom: 1px solid #444; /* Alt çizgi */
+  cursor: pointer; /* Fare imleci */
+}
+
+.sidebar li:hover {
+  background-color: #555; /* Üzerine gelince arka plan rengi */
+}
+
+/* Sidebar Link */
+.sidebar a {
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  color: white; /* Metin rengi */
+  display: block; /* Blok düzeyinde göster */
+}
+
+.sidebar-icon {
+  margin-right: 10px; /* Simgeden sonra boşluk */
+}
+
+
+
+.icon {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Örnek arka plan rengi */
+  padding: 0.5rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.navbar-icons {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.profile-icon {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%; /* İkonun altında */
+  right: 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  width: 200px; /* Ya da ihtiyaca göre ayarlayın */
+  z-index: 1000;
+}
+
+.profile-dropdown .dropdown-item {
+  padding: 1rem;
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-dropdown .dropdown-divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  background-color: #eceeef;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+  gap: 20px; /* Öğeler arası boşluk */
+}
+
+.list-category {
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: auto; /* veya belirli bir yükseklik değeri */
+  overflow: hidden; /* fazla gelen içeriği kes */
+  display: flex; /* flex kutusu olarak ayarla */
+  flex-direction: column; /* içeriği sütun olarak düzenle */
+  justify-content: space-between; /* içeriği düzgünce dağıt */
+}
+
+.list-category img {
+  width: 100%; /* resmi konteyner genişliğine sığdır */
+  height: auto; /* resmin orijinal oranını koru */
+  object-fit: cover; /* resmi kutuya sığacak şekilde kırp */
+}

@@ -1,0 +1,62 @@
+/* AdminPanel.css */
+.admin-func {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Üstten başlayarak içerikleri sıralar */
+  margin-top: 8vh; /* Üstten boşluk */
+  padding: 2rem;
+  background-color: #f4f4f4; /* Arka plan rengi */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Genişlik */
+  min-height: 3vh; /* Yükseklik */
+  margin-left: auto; /* Otomatik marjin sol */
+  margin-right: auto; /* Otomatik marjin sağ */
+  color: #333; /* Metin rengi */
+  position: relative; /* Pozisyon */
+  left: 15px; /* Sol taraf */
+  top: 45px; /* Üstten boşluk */
+  font-size: 0.9rem; /* Yazı boyutunu azalt */
+  max-width: 400px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-func h2 {
+  color: #333;
+  text-align: center;
+}
+
+.admin-func input[type='text'],
+.admin-func input[type='file'],
+.admin-func input[type='number'] {
+  width: calc(100% - 20px); /* Genişlik, container'dan 20px çıkararak hesaplanıyor */
+  padding: 10px; 
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-func-button[type='submit'] {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-radius: 2px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+
+.add-panel button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+.add-func-option {
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}

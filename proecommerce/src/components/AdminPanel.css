@@ -1,0 +1,10 @@
+/* AdminPanel.css */
+.admin-panel-layout {
+    display: flex;
+  }
+  
+  .admin-panel-content {
+    margin-left: 150px; /* Sidebar genişliği kadar sola boşluk bırakın */
+    padding: 20px; /* İçerik için boşluk */
+    /* Diğer stil tanımlamalarınız... */
+  }

@@ -1,0 +1,34 @@
+/* AdminSide.css */
+.admin-sidebar {
+  width: 150px;
+  height: 90vh;
+  position: fixed;
+  left: 0;
+  top: 18vh;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.active-link {
+  /* Aktif link için ekstra stiller */
+  background-color: #007bff; /* Mavi arka plan rengi */
+  color: white;
+  padding: 10px;
+}
+
+.link {
+  /* Pasif link için stiller */
+  padding: 5px;
+  border-bottom: 1px solid #444;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.link:hover {
+  background-color: #555;
+}
+
+/* Diğer stilleriniz... */

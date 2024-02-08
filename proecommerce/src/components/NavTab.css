@@ -1,0 +1,12 @@
+/* AdminSidebar.css */
+.admin-sidebar a {
+  display: block;
+  padding: 10px;
+  color: #333; /* Normal link rengi */
+  text-decoration: none; /* Link alt çizgisini kaldır */
+}
+
+.admin-sidebar a.active {
+  color: #fff; /* Aktif link rengi */
+  background-color: #007bff; /* Aktif link arka plan rengi */
+}
