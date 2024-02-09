@@ -16,11 +16,6 @@ const AdminSidebar = () => {
         > Add 
      </NavLink>
       <NavLink 
-        to="/AdminPanel/delete"
-        className={({ isActive }) => isActive ? 'active-link' : 'link'}
-        > Delete
-      </NavLink>
-      <NavLink 
         to="/AdminPanel/update"
         className={({ isActive }) => isActive ? 'active-link' : 'link'}
         > Update

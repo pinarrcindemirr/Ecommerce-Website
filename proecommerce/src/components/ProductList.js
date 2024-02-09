@@ -4,11 +4,13 @@ import NavbarMain from '../Bars/NavbarMain';
 import { useParams , useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import './Table.css'
+import './listProduct.css'
 import AdminSidebar from '../Bars/AdminSidebar';
 import { useMutation, useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const ProductList = () => {
   const queryClient = useQueryClient();
@@ -25,7 +27,14 @@ const ProductList = () => {
 
   const { data, isLoading, isError, error } = useQuery('products', listProducts);
 
-  
+  const deleteProduct = useMutation(productId => {
+    return axios.delete(`http://10.28.60.22:9091/product/deleteProduct/${productId}`);
+  }, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('products');
+    }
+  });
+  /*
   const handleSelectProduct = (productId) => {
     console.log(productId)
     setSelectedProducts(prevSelectedProducts =>
@@ -34,21 +43,22 @@ const ProductList = () => {
         : [...prevSelectedProducts, productId]
     );
   };
+*/
+if (isLoading) return <div>Loading...</div>;
+if (isError) return <div>Error: {error.message}</div>;
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
+  const handleAddProduct = () => {
+    navigate('/AdminPanel/add');
+  };
 
   const handleEditProduct = (productId) => {
     // Edit işlemi için gerekli kodlar buraya gelecek
   };
   
-  const handleDeleteProduct = async (productId) => {
-    // Silme işlemi için gerekli kodlar buraya gelecek
+  const handleDeleteProduct = (productId) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      deleteProduct.mutate(productId);
+    }
   };
 
   return (
@@ -59,7 +69,12 @@ const ProductList = () => {
           <AdminSidebar/>
         </aside>
         <main>
-          <h1>Product List</h1>
+          <div className="product-list-header">
+            <h1>Product List</h1>
+            <button onClick={handleAddProduct} className="add-product-button">
+              <IoIosAddCircleOutline size="2em" /> {/* İkon boyutunu ayarlayabilirsiniz */}
+            </button>
+          </div>
           <table>
             <thead>
               <tr>

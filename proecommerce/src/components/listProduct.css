@@ -1,0 +1,37 @@
+.product-list-header {
+    display: flex; /* Flexbox kullanarak içerikleri hizalar */
+    align-items: center; /* Dikey olarak ortalar */
+    justify-content: space-between; /* Başlık ve buton arasında boşluk bırakır */
+    padding: 0 1rem; /* Biraz dolgu ekler */
+  }
+  
+  .add-product-button {
+    background-color: #007bff; /* Butonun arka plan rengi */
+    color: white; /* İkon ve yazı rengi */
+    border: none; /* Kenarlık kaldırılır */
+    padding: 0.5rem 1rem; /* İç dolgu */
+    border-radius: 0.25rem; /* Kenar yuvarlaklığı */
+    cursor: pointer; /* İmleç buton üzerine geldiğinde el şeklini alır */
+    font-size: 1rem; /* Yazı boyutu */
+    display: flex; /* İçerikleri düzgün hizalamak için flex */
+    align-items: center; /* İkon ve yazıyı dikey olarak ortalar */
+    justify-content: center; /* İkon ve yazıyı yatay olarak ortalar */
+  }
+  
+  .add-product-button:hover {
+    background-color: #0056b3; /* Butonun üzerine gelindiğinde arka plan rengi koyulaşır */
+  }
+  
+  .add-product-button:active {
+    background-color: #004080; /* Butona basıldığında arka plan rengi daha da koyulaşır */
+  }
+  
+  .add-product-button:focus {
+    outline: none; /* Butona tıklandığında dış çizgiyi kaldırır */
+  }
+  
+  /* İkon boyutunu doğrudan CSS ile de ayarlayabilirsiniz */
+  .add-product-button svg {
+    width: 2em; /* İkon genişliği */
+    height: 2em; /* İkon yüksekliği */
+  }

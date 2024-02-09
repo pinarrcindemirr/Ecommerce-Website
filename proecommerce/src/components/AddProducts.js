@@ -85,6 +85,7 @@ const AddProducts = () => {
     
     addProduct(productInfo);
     console.log('aaa',productInfo);
+    navigate('/AdminPanel/listProduct');
 };
 
   return (
@@ -103,6 +104,7 @@ const AddProducts = () => {
                   value={productInfo.category.categoryId}
                   onChange={handleInputChange}
                 > 
+                  <option value="" disabled selected>Select Category</option>
                   {isLoading ? (
                   <option>Loading...</option>
                   ) : isError ? (
