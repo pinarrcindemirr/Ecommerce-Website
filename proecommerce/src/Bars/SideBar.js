@@ -9,7 +9,7 @@ const SideBar = ({ onSelectCategory }) => {
   const [category, setCategory] = useState([]);
 
   const {isLoading, isError,data,error}=useQuery('category', ()=>
-    axios.get('http://10.28.60.28:9091/category/listAllCategories')
+    axios.get('http://10.28.60.22:9091/category/listAllCategories')
     .then(response => response.data.data)
   )
 
@@ -28,11 +28,10 @@ const SideBar = ({ onSelectCategory }) => {
       <h2>CATEGORIES</h2>
       <ul>
       {data.map((categoryItem) => (
-        <li 
-          style={{color: "white"}} 
-          key={categoryItem.categoryId } 
-          onClick={() => onSelectCategory(categoryItem.categoryName)}>
-            {categoryItem.categoryName}
+        <li key={categoryItem.categoryId } >
+          <Link to={`/Categories/${categoryItem.categoryId}`} style={{color: "white"}}>
+              {categoryItem.categoryName}
+            </Link>
         </li>
       ))}
       </ul>

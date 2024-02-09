@@ -31,26 +31,22 @@ const HomePage = () => {
         <SideBar onSelectCategory={setSelectedCategory} />
       </aside>
       <main className="main-content">
-          <div className='main'>
-              <div className='container'>
-                {Array.isArray(data) ? (
-                    data.map((category,index) => (
-                      <div className='list-category' key={index}>
-                          <Link to={`/Categories/${category.categoryName}`}  className='linktTo' >
-                            <h2>{category.categoryName}</h2>
-                          </Link>
-                       <Link to={`/Categories/${category.categoryName}`}>
-                          <img  key={index} src={category.categoryImage} alt={category.categoryName}  />
-                         </Link>
-                      </div>
-                    ))
-
-                ) : (
-                  <div>Dta is not Array</div>
-                )}
-                
-              </div>
-            </div>
+        <div className='main'>
+          <div className='container'>
+            {Array.isArray(data) ? (
+              data.map((category) => (
+                <div className='list-category' key={category.categoryId}>
+                  <Link to={`/Categories/${category.categoryId}`} className='linkTo'>
+                    <h2>{category.categoryName}</h2>
+                    <img src={category.categoryImage} alt={category.categoryName} />
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <div>Data is not an Array</div>
+            )}
+          </div>
+        </div>
       </main>
     </div>
   );
