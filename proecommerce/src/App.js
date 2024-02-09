@@ -12,6 +12,7 @@ import HealthBeautyCategory from './Categories/HealthBeautyCategory';
 import AddProducts from './components/AddProducts';
 import DeleteProduct from './components/DeleteProduct';
 import UpdateProduct from './components/UpdateProduct';
+import ProductList from './components/ProductList';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
@@ -20,7 +21,6 @@ import {
   Navigate 
 } from "react-router-dom";
 import AdminPanel from './components/AdminPanel';
-import LogOut from './components/LogOut';
 
 const queryClient = new QueryClient();
 function App() {
@@ -40,7 +40,8 @@ function App() {
             <Route path='/Categories/GameAssesories' element={<GameCategory/>}/>
             <Route path='/Categories/HealthBeauty' element={<HealthBeautyCategory/>}/>
             <Route path='/AdminPanel' element={<AdminPanel/>}>
-              <Route index element={<Navigate replace to="add" />} /> 
+              <Route index element={<Navigate replace to="listProduct"/>} />
+              <Route path='listProduct' element={<ProductList/>}/>
               <Route path='add' element={<AddProducts />} />
               <Route path='delete' element={<DeleteProduct />} />
               <Route path='update' element={<UpdateProduct />} />
