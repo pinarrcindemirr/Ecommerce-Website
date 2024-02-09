@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Bars/Navbar';
 import NavbarMain from '../Bars/NavbarMain';
 import { useParams , useNavigate} from 'react-router-dom';
@@ -11,6 +11,7 @@ const UpdateProducts = () => {
   const queryClient = useQueryClient();
   const { categoryName } = useParams();
   const navigate = useNavigate();
+  const { productId } = useParams();
 
   const [productInfo, setProductInfo] = useState({
     productName:"",
@@ -37,43 +38,39 @@ const UpdateProducts = () => {
 
   const { data: brands, isLoading: isLoadingBrands, isError: isErrorBrands } = useQuery('brands', fetchBrands);
 
+  const { isLoading: isLoadingProduct, isError: isErrorProduct, error, data: productData } = useQuery(['product', productId], () => fetchProduct(productId), {
+    enabled: !!productId,
+  });
 
-  const addProductDatabase= async (product) => {
-    const response = await axios({
-      method: 'post',
-      url: 'http://10.28.60.22:9091/product/addProduct',
-      data: product,
-      headers: {'Content-Type': 'application/json'}
-    });
-    return response.data;
+  useEffect(() => {
+    if (productData) {
+      setProductInfo(productData);
+    }
+  }, [productData]);
+
+  const fetchProduct = async (id) => {
+    const response = await axios.get(`http://10.28.60.22:9091/product/listAllProducts/${id}`);
+    return response.data.data;
   };
 
-  const {mutate: addProduct, isLoadingProduct,isErrorProduct, error} = useMutation(addProductDatabase, {
-    onSuccess: ()=>{
-      queryClient.invalidateQueries('products');
-      alert('Product added successfully!');
-    },
-    onError: (error)=> {
-      alert(`An error occurred: ${error.message}`);
+  const updateProduct= useMutation(newProductInfo => {
+    return axios.put(`http://10.28.60.22:9091/product/updatProducts`)
+  },{
+    onSuccess: () =>{
+      queryClient.invalidateQueries(['product', productId])
     }
   })
 
-  /*
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value)
     if (name === "categoryId") {
-        setProductInfo({ ...productInfo, category: { ...productInfo.category, categoryId: value } });
+        setProductInfo({ ...productInfo, category: { ...productInfo.category, categoryId: parseInt(value) } });
     } else if (name === "brandId") {
-        setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: value } });
+        setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: parseInt(value) } });
     } else {
         setProductInfo({ ...productInfo, [name]: value });
     }
-};
-*/
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProductInfo({ ...productInfo, [name]: value });
   };
 
   const handleFileChange = (e) => {
@@ -88,14 +85,6 @@ const UpdateProducts = () => {
   const handleSubmit = (e) => {
       e.preventDefault();
 
-      const productData = {
-        categoryId: +productInfo.category.categoryId,
-        productName: productInfo.productName,
-        brandId: +productInfo.brand.brandId,
-        imageUrl: productInfo.imageUrl,
-        price: +productInfo.price,
-      };
-      addProduct(productData);
       console.log(productData);
   };
 
@@ -183,43 +172,3 @@ const UpdateProducts = () => {
 }
 
 export default UpdateProducts
-/*
-<select
-    name='categoryId' // This should be 'categoryId' to match the state structure
-    value={productInfo.category.categoryId}
-    onChange={handleInputChange}
->
-   
-</select>
-
-
-
-<select
-    name="brandId" // This should be 'brandId' to match the state structure
-    value={productInfo.brand.brandId}
-    onChange={handleInputChange}
->
-    </select>
-
-
-
-
-    const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const productData = {
-        productName: productInfo.productName,
-        imageUrl: productInfo.imageUrl,
-        price: +productInfo.price,
-        category: {
-            categoryId: +productInfo.category.categoryId,
-        },
-        brand: {
-            brandId: +productInfo.brand.brandId,
-        },
-    };
-    addProduct(productData);
-    console.log(productData);
-  };
-
- */              

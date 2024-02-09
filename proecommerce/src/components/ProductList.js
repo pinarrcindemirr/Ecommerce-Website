@@ -52,7 +52,7 @@ if (isError) return <div>Error: {error.message}</div>;
   };
 
   const handleEditProduct = (productId) => {
-    // Edit işlemi için gerekli kodlar buraya gelecek
+    navigate('/AdminPanel/update/${productId}')
   };
   
   const handleDeleteProduct = (productId) => {
@@ -62,7 +62,7 @@ if (isError) return <div>Error: {error.message}</div>;
   };
 
   return (
-    <div >
+    <div>
        <NavbarMain/>
         <Navbar/>
         <aside className="sidebar">

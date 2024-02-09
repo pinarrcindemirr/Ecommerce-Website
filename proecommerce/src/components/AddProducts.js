@@ -81,11 +81,10 @@ const AddProducts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     
     addProduct(productInfo);
     console.log('aaa',productInfo);
-    navigate('/AdminPanel/listProduct');
+    navigate('/AdminPanel/add');
 };
 
   return (
