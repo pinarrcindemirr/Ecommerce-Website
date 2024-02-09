@@ -200,17 +200,98 @@
 }
 
 .list-category {
-  border: 1px solid #ccc;
-  padding: 10px;
-  height: auto; /* veya belirli bir yükseklik değeri */
-  overflow: hidden; /* fazla gelen içeriği kes */
-  display: flex; /* flex kutusu olarak ayarla */
-  flex-direction: column; /* içeriği sütun olarak düzenle */
-  justify-content: space-between; /* içeriği düzgünce dağıt */
+  border: 1px solid #ccc; /* Kenarlık */
+  border-radius: 10px; /* Kenar yuvarlaklığı */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Gölge efekti */
+  margin: 10px; /* Çevresindeki boşluk */
+  overflow: hidden; /* İçeriğin taşmasını önle */
+  background: #fff; /* Arka plan rengi */
+  display: flex; /* Flexbox kullan */
+  flex-direction: column; /* Öğeleri dikey olarak sırala */
+  justify-content: space-between; /* İçeriği eşit olarak dağıt */
 }
 
-.list-category img {
-  width: 100%; /* resmi konteyner genişliğine sığdır */
-  height: auto; /* resmin orijinal oranını koru */
-  object-fit: cover; /* resmi kutuya sığacak şekilde kırp */
+.card-img-top {
+  width: 100%; /* Resmi kutuya sığdır */
+  height: 250px; /* Sabit bir yükseklik belirle */
+  object-fit: cover; /* Resmi kutuya sığacak şekilde kırp */
+  border: 5px solid hsl(200, 2%, 35%); /* Resmin etrafına beyaz çerçeve ekle */
+}
+
+.card-body {
+  padding: 15px; /* İç boşluk */
+}
+
+.card-title {
+  font-size: 1rem; /* Başlık boyutu */
+  margin-bottom: .5rem; /* Başlıktan sonra boşluk */
+}
+
+.card-text {
+  font-size: .875rem; /* Metin boyutu */
+  color: #666; /* Metin rengi */
+  margin-bottom: 1rem; /* Metinden sonra boşluk */
+}
+
+.button {
+  background-color: #007bff; /* Düğme arka plan rengi */
+  color: white; /* Düğme metin rengi */
+  border: none; /* Düğme kenarlığı kaldır */
+  padding: 10px 20px; /* Düğme iç boşluğu */
+  font-size: .875rem; /* Düğme metin boyutu */
+  cursor: pointer; /* Fare imlecini düğme üzerine getir */
+  transition: background-color 0.2s; /* Arka plan rengi geçişi */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Düğme üzerine gelince arka plan rengi */
+}
+
+/* Kargo bedava etiketi için stil */
+.product-promo-label {
+  position: absolute; /* Pozisyonlandırma */
+  top: 10px; /* Üstten boşluk */
+  left: 10px; /* Soldan boşluk */
+  background-color: #ffc107; /* Arka plan rengi */
+  color: #fff; /* Metin rengi */
+  padding: 5px 10px; /* İç boşluk */
+  border-radius: 5px; /* Kenar yuvarlaklığı */
+  font-size: .75rem; /* Yazı boyutu */
+}
+
+/* Fiyat etiketi */
+.product-price {
+  font-size: 1.25rem; /* Fiyat yazı boyutu */
+  color: #333; /* Fiyat yazı rengi */
+  font-weight: bold; /* Yazı kalınlığı */
+}
+
+/* Ürün adı ve diğer metinler */
+.product-name {
+  font-size: 1rem; /* Ürün adı yazı boyutu */
+  color: #333; /* Ürün adı yazı rengi */
+}
+
+/* Yıldızlar ve değerlendirme sayısı */
+.product-rating {
+  display: flex; /* Flexbox kullan */
+  align-items: center; /* Öğeleri ortala */
+}
+
+/* Yıldız simgesi için stil */
+.star-icon {
+  color: #ffd700; /* Yıldız rengi */
+  margin-right: .25rem; /* Yıldızdan sonraki boşluk */
+}
+
+/* Değerlendirme sayısı */
+.rating-count {
+  font-size: .875rem; /* Değerlendirme yazı boyutu */
+  color: #666; /* Değerlendirme yazı rengi */
+}
+
+/* Kupon fırsatı etiketi */
+.coupon-label {
+  background-color: #dc3545; /* Arka plan rengi */
+  color: #fff; /* Metin*/
 }
