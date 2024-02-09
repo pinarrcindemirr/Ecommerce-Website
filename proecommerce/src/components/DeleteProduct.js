@@ -100,6 +100,7 @@ const DeleteProducts = () => {
                   <td>{product.category.categoryName}</td>
                   <td>{product.brand.brandName}</td>
                   <td>{product.price}</td>
+                  
                 </tr>
               ))}
             </tbody>

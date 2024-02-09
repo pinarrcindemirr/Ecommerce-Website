@@ -7,7 +7,8 @@ import './Table.css'
 import AdminSidebar from '../Bars/AdminSidebar';
 import { useMutation, useQueryClient, useQuery } from 'react-query';
 import axios from 'axios';
-
+import { FaRegEdit } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const ProductList = () => {
   const queryClient = useQueryClient();
@@ -42,6 +43,14 @@ const ProductList = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  const handleEditProduct = (productId) => {
+    // Edit işlemi için gerekli kodlar buraya gelecek
+  };
+  
+  const handleDeleteProduct = async (productId) => {
+    // Silme işlemi için gerekli kodlar buraya gelecek
+  };
+
   return (
     <div >
        <NavbarMain/>
@@ -49,6 +58,38 @@ const ProductList = () => {
         <aside className="sidebar">
           <AdminSidebar/>
         </aside>
+        <main>
+          <h1>Product List</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map(product => (
+                <tr key={product.productId}>
+                  <td>{product.productName}</td>
+                  <td>{product.category.categoryName}</td>
+                  <td>{product.brand.brandName}</td>
+                  <td>{product.price}</td>
+                  <td>
+                    <button onClick={() => handleEditProduct(product.productId)}>
+                      <FaRegEdit />
+                    </button>
+                    <button onClick={() => handleDeleteProduct(product.productId)}>
+                      <FaTrash />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </main>
       </div>
   )
 }
