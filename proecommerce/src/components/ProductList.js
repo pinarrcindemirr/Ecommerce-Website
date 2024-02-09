@@ -18,7 +18,7 @@ const ProductList = () => {
   const [brands, setBrands] = useState([])
 
   const listProducts = async () => {
-    const response = await axios.get('http://10.28.60.28:9091/product/listAllProducts'); 
+    const response = await axios.get('http://10.28.60.22:9091/product/listAllProducts'); 
     return response.data.data;
   };
 

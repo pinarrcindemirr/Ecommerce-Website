@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-//import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-//import data from '../data';
 import SideBar from '../Bars/SideBar';
 import Navbar from '../Bars/Navbar';
 import NavbarMain from '../Bars/NavbarMain';
@@ -10,10 +8,9 @@ import { useQuery } from 'react-query';
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  //const [products, setProducts] = useState([]);
 
   const {isLoading, isError,data,error}=useQuery('category', ()=>
-  axios.get('http://10.28.60.28:9091/category/listAllCategories')
+  axios.get('http://10.28.60.22:9091/category/listAllCategories')
   .then(response => response.data.data)
   )
 
@@ -21,7 +18,6 @@ const HomePage = () => {
     return <div>Loading...</div>;
   }
 
-  // Hata durumunu kontrol et
   if (isError) {
     console.error('Error', error);
     return <div>Error: {error.message}</div>;

@@ -11,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const loginMutation = useMutation(loginInfo => {
-        return fetch("http://10.28.60.28:9091/user/login", {
+        return fetch("http://10.28.60.22:9091/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -19,18 +19,14 @@ const Login = () => {
             body: JSON.stringify(loginInfo),
         }).then(response => response.json());
     }, {
-        // Başarılı giriş durumu
         onSuccess: (data) => {
-            // Burada API'nin döndürdüğü veriye göre başarılı giriş işlemini kontrol etmelisiniz.
-            // Örneğin, token varsa veya API belirli bir durum kodu gönderiyorsa
-            if (data) { // API'nin başarılı giriş durumunu kontrol etmek için "success" özelliğini kontrol edin
+            if (data) {
                 console.log('User logged in:', data);
                 navigate('/HomePage');
             } else {
                 setLoginError("Username or password is incorrect.");
             }
         },
-        // Hata durumu
         onError: (error) => {
             console.error("Error:", error);
             setLoginError('An error occurred while trying to log in.');
