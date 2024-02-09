@@ -25,7 +25,6 @@ const AdminSidebar = () => {
         className={({ isActive }) => isActive ? 'active-link' : 'link'}
         > Update
       </NavLink>
-      {/* İstenirse daha fazla link eklenebilir */}
     </div>
   );
 };
