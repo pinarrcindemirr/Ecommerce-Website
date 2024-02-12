@@ -43,7 +43,8 @@ if (isError) return <div>Error: {error.message}</div>;
   };
 
   const handleEditProduct = (productId) => {
-    navigate('/AdminPanel/update/${productId}')
+    console.log("Edit Product Id:", productId);
+    navigate(`/AdminPanel/update/${productId}`)
   };
   
   const handleDeleteProduct = (productId) => {

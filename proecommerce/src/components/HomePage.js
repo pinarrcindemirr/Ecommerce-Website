@@ -5,6 +5,7 @@ import Navbar from '../Bars/Navbar';
 import NavbarMain from '../Bars/NavbarMain';
 import axios from 'axios'
 import { useQuery } from 'react-query';
+import { Card } from 'react-bootstrap';
 
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -35,12 +36,15 @@ const HomePage = () => {
           <div className='container'>
             {Array.isArray(data) ? (
               data.map((category) => (
-                <div className='list-category' key={category.categoryId}>
+                <Card className='list-category' key={category.categoryId}>
                   <Link to={`/Categories/${category.categoryId}`} className='linkTo'>
-                    <h2>{category.categoryName}</h2>
-                    <img src={category.categoryImage} alt={category.categoryName} />
+                    <Card.Body>
+                      <Card.Title>{category.categoryName}</Card.Title>
+                    </Card.Body>
+                    <Card.Img variant='top' src={category.categoryImage} alt={category.categoryName}/>
+                    
                   </Link>
-                </div>
+                </Card>
               ))
             ) : (
               <div>Data is not an Array</div>

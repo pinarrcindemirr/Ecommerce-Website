@@ -1,13 +1,14 @@
 
 .linkTo{
   text-decoration: none;
+  color: #f8f9fa;
 }
 
 .navbar-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1225px; /* Sidebar genişliği */
+  width: 1205px; /* Sidebar genişliği */
   height: 6vh; /* Tam ekran yüksekliği */
   position: fixed; /* Sabit pozisyon */
   left: 0; /* Sol tarafa yasla */
@@ -20,7 +21,7 @@
 .search-bar {
   display: flex;
   align-items: center;
-  margin-top: 20px
+  margin-top: 14px
 }
 
 .search-bar input {
@@ -41,7 +42,6 @@
   margin-left: 20px;
   cursor: pointer;
 }
-
 
 /* Sidebar Container */
 .navbar1 {
@@ -215,7 +215,7 @@
 
 .card-img-top {
   width: calc(100% - 10px); /* Resmi kutuya sığdır, kenarlıkları çıkar */
-  height: 250px; /* Sabit bir yükseklik belirle */
+  height: 150px; /* Sabit bir yükseklik belirle */
   object-fit: cover; /* Resmi kutuya sığacak şekilde kırp */
   margin: 5px; /* Resim etrafında boşluk bırak */
   border: 5px solid hsl(200, 2%, 35%);
@@ -230,6 +230,8 @@
   font-size: 2rem; /* Başlık boyutu */
   margin-bottom: .5rem; /* Başlıktan sonra boşluk */
   font-weight: bold; 
+  color: #333;
+  align-items: center;
 }
 
 .card-text {
@@ -240,7 +242,7 @@
 
 .button {
   width: 100%;
-  background-color: #007bff; /* Düğme arka plan rengi */
+  background-color: hwb(8 27% 17%);  /* Düğme arka plan rengi */
   color: white; /* Düğme metin rengi */
   border: none; /* Düğme kenarlığı kaldır */
   padding: 10px 20px; /* Düğme iç boşluğu */
@@ -251,7 +253,7 @@
 }
 
 .button:hover {
-  background-color: #0056b3; /* Düğme üzerine gelince arka plan rengi */
+  background-color: hwb(8 27% 17%);  /* Düğme üzerine gelince arka plan rengi */
 }
 
 /* Kargo bedava etiketi için stil */

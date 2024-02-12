@@ -51,13 +51,7 @@ const CategoryProduct = () => {
                             </Card.Body>
                         </Card>
                     ))}
-
-
                  </div>
-                 <ul>
-                     
-                  </ul>
-  
               </div>
            </main>
         </div>

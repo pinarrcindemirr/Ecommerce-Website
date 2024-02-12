@@ -6,7 +6,7 @@
   }
   
   .add-product-button {
-    background-color: #007bff; /* Butonun arka plan rengi */
+    background-color: hwb(8 27% 17%);  /* Butonun arka plan rengi */
     color: white; /* İkon ve yazı rengi */
     border: none; /* Kenarlık kaldırılır */
     padding: 0.5rem 1rem; /* İç dolgu */
@@ -19,11 +19,11 @@
   }
   
   .add-product-button:hover {
-    background-color: #0056b3; /* Butonun üzerine gelindiğinde arka plan rengi koyulaşır */
+    background-color: hwb(8 27% 17%);  /* Butonun üzerine gelindiğinde arka plan rengi koyulaşır */
   }
   
   .add-product-button:active {
-    background-color: #004080; /* Butona basıldığında arka plan rengi daha da koyulaşır */
+    background-color: hwb(8 27% 17%);  /* Butona basıldığında arka plan rengi daha da koyulaşır */
   }
   
   .add-product-button:focus {

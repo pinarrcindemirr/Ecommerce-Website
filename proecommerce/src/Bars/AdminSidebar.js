@@ -15,11 +15,6 @@ const AdminSidebar = () => {
         className={({ isActive }) => isActive ? 'active-link' : 'link'}
         > Add 
      </NavLink>
-      <NavLink 
-        to="/AdminPanel/update"
-        className={({ isActive }) => isActive ? 'active-link' : 'link'}
-        > Update
-      </NavLink>
     </div>
   );
 };

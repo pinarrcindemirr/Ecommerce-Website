@@ -47,7 +47,7 @@ function App() {
               <Route path='listProduct' element={<ProductList/>}/>
               <Route path='add' element={<AddProducts />} />
               <Route path='delete' element={<DeleteProduct />} />
-              <Route path='update' element={<UpdateProduct />} />
+              <Route path='update/:productId' element={<UpdateProduct />} />
             </Route>
             {/*<Route path='/LogOut' element={<LogOut/>}/> */}
             <Route path="*" element={<h1>404 Not Found</h1>} />

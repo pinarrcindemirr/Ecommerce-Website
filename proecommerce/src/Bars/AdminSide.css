@@ -12,14 +12,13 @@
 }
 
 .active-link {
-  /* Aktif link için ekstra stiller */
-  background-color: white;
-  color: black;
+  background-color: rgb(95, 82, 82);
+  color: white;
   padding: 10px;
+  font-weight: bold; 
 }
 
 .link {
-  /* Pasif link için stiller */
   padding: 5px;
   border-bottom: 1px solid #444;
   text-decoration: none;

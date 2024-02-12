@@ -9,55 +9,62 @@ import axios from 'axios';
 
 const UpdateProducts = () => {
   const queryClient = useQueryClient();
-  const { categoryName } = useParams();
-  const navigate = useNavigate();
   const { productId } = useParams();
+  const navigate = useNavigate();
 
   const [productInfo, setProductInfo] = useState({
     productName:"",
     imageUrl:"",
     price:0,
     category:{
-        categoryId:0
+        categoryId:0,
+        categoryName:""
           },
     brand:{
-      brandId:0}
+      brandId:0,
+      brandName:""
+    }
   });
 
   const fetchCategories = async () => {
-    const response = await axios.get('http://10.28.60.22:9091/category/listAllCategories'); 
+    const response = await axios.get('http://10.28.60.26:9091/category/listAllCategories'); 
     return response.data.data;
   };
 
   const { data: categories, isLoading, isError } = useQuery('category', fetchCategories);
 
   const fetchBrands = async () => {
-    const response = await axios.get('http://10.28.60.22:9091/brand/listAllBrands');
+    const response = await axios.get('http://10.28.60.26:9091/brand/listAllBrands');
     return response.data.data;
   };
 
   const { data: brands, isLoading: isLoadingBrands, isError: isErrorBrands } = useQuery('brands', fetchBrands);
 
-  const { isLoading: isLoadingProduct, isError: isErrorProduct, error, data: productData } = useQuery(['product', productId], () => fetchProduct(productId), {
-    enabled: !!productId,
-  });
-
-  useEffect(() => {
-    if (productData) {
-      setProductInfo(productData);
+  const fetchProduct = async () =>{
+    try {
+      const response = await axios.get(`http://10.28.60.26:9091/product/findProductById/${productId}`);
+      setProductInfo(response.data.data);
+    }catch(error){
+      console.error('Failed to fetch product details:', error);
     }
-  }, [productData]);
-
-  const fetchProduct = async (id) => {
-    const response = await axios.get(`http://10.28.60.22:9091/product/listAllProducts/${id}`);
-    return response.data.data;
   };
 
+  useEffect(()=>{
+
+    if(productId){
+      fetchProduct();
+    }
+
+  },[productId]);
+
   const updateProduct= useMutation(newProductInfo => {
-    return axios.put(`http://10.28.60.22:9091/product/updatProducts`)
+    return axios.put(`http://10.28.60.26:9091/product/updateProduct`,newProductInfo)
   },{
     onSuccess: () =>{
       queryClient.invalidateQueries(['product', productId])
+    },
+    onError: (error) => {
+      console.error('Failed to update product:', error);
     }
   })
 
@@ -77,21 +84,25 @@ const UpdateProducts = () => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setProductInfo({ ...productInfo, imageUrl: reader.result });
+      setProductInfo(prevState => ({ ...prevState, imageUrl: reader.result }));
     };
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (e) => {
-      e.preventDefault();
-
-      console.log(productData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await updateProduct.mutateAsync(productInfo);
+      navigate('/AdminPanel/listProduct'); 
+    } catch (error) {
+      console.error('Failed to update product:', error);
+    }
   };
 
   return (
     <div className='admin-func'>
        <NavbarMain/>
-        <Navbar selectedCategory={categoryName}/>
+        <Navbar/>
         <aside className="sidebar">
           <AdminSidebar/>
         </aside>
@@ -101,7 +112,7 @@ const UpdateProducts = () => {
                 <label>Select Category:</label>
                 <select
                   name='categoryId'
-                  value={productInfo.categoryId}
+                  value={productInfo.category.categoryId}
                   onChange={handleInputChange}
                 > 
                   {isLoading ? (
@@ -131,7 +142,7 @@ const UpdateProducts = () => {
                 <label>Brand Name:</label>
                 <select
                   name="brandId"
-                  value={productInfo.brandId}
+                  value={productInfo.brand.brandId}
                   onChange={handleInputChange}
                 >
                   {isLoadingBrands ? (
@@ -165,7 +176,7 @@ const UpdateProducts = () => {
                   />
               </div>
               <button className="add-func-button" onClick={handleSubmit} type="submit">Update Product</button>
-              {isErrorProduct && <p>Error: {error.message}</p>}
+              
         </main>
       </div>
   )

@@ -68,7 +68,7 @@ const AddProducts = () => {
     } else {
         setProductInfo({ ...productInfo, [name]: value });
     }
-};
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
