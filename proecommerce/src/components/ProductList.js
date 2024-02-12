@@ -21,29 +21,20 @@ const ProductList = () => {
   const [brands, setBrands] = useState([])
 
   const listProducts = async () => {
-    const response = await axios.get('http://10.28.60.22:9091/product/listAllProducts'); 
+    const response = await axios.get('http://10.28.60.26:9091/product/listAllProducts'); 
     return response.data.data;
   };
 
   const { data, isLoading, isError, error } = useQuery('products', listProducts);
 
   const deleteProduct = useMutation(productId => {
-    return axios.delete(`http://10.28.60.22:9091/product/deleteProduct/${productId}`);
+    return axios.delete(`http://10.28.60.26:9091/product/deleteProduct/${productId}`);
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries('products');
     }
   });
-  /*
-  const handleSelectProduct = (productId) => {
-    console.log(productId)
-    setSelectedProducts(prevSelectedProducts =>
-      prevSelectedProducts.includes(productId)
-        ? prevSelectedProducts.filter(id => id !== productId)
-        : [...prevSelectedProducts, productId]
-    );
-  };
-*/
+
 if (isLoading) return <div>Loading...</div>;
 if (isError) return <div>Error: {error.message}</div>;
 

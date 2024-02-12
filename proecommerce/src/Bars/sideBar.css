@@ -7,8 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1200px; /* Sidebar genişliği */
-  height: 5.5vh; /* Tam ekran yüksekliği */
+  width: 1225px; /* Sidebar genişliği */
+  height: 6vh; /* Tam ekran yüksekliği */
   position: fixed; /* Sabit pozisyon */
   left: 0; /* Sol tarafa yasla */
   top: 7%; /* Üst tarafa yasla */
