@@ -60,15 +60,26 @@ const AddProducts = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value)
     if (name === "categoryId") {
+      if (value === "addCategory") {
+        // Kullanıcı "Add Category" seçeneğini seçtiğinde, Add Category sayfasına yönlendir
+        navigate('/AdminPanel/addCategory');
+      } else {
+        // Normal işlem devam ediyor
         setProductInfo({ ...productInfo, category: { ...productInfo.category, categoryId: parseInt(value) } });
+      }
     } else if (name === "brandId") {
+      if(name === "brandId"){
+        navigate('/AdminPanel/addBrand');
+      }else{
         setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: parseInt(value) } });
+      }
+     
     } else {
-        setProductInfo({ ...productInfo, [name]: value });
+      setProductInfo({ ...productInfo, [name]: value });
     }
   };
+  
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -103,6 +114,8 @@ const AddProducts = () => {
                   value={productInfo.category.categoryId}
                   onChange={handleInputChange}
                 > 
+                <option value="">Selecet Category</option>
+                <option className='add-func-option' value="addCategory"> + Add Category</option>
                   {isLoading ? (
                   <option>Loading...</option>
                   ) : isError ? (
@@ -133,6 +146,8 @@ const AddProducts = () => {
                   value={productInfo.brand.brandId}
                   onChange={handleInputChange}
                 >
+                  <option value="">Selecet Brand </option>
+                  <option className='add-func-option' value="addCategory">+ Add Brand</option>
                   {isLoadingBrands ? (
                     <option>Loading...</option>
                   ) : isErrorBrands ? (

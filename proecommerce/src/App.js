@@ -15,6 +15,8 @@ import UpdateProduct from './components/UpdateProduct';
 import ProductList from './components/ProductList';
 import CategoryProduct from './Categories/CategoryProduct';
 import AdminPanel from './components/AdminPanel';
+import AddBrand from './components/AddBrand';
+import AddCategory from './components/AddCategory';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
@@ -48,6 +50,8 @@ function App() {
               <Route path='add' element={<AddProducts />} />
               <Route path='delete' element={<DeleteProduct />} />
               <Route path='update/:productId' element={<UpdateProduct />} />
+              <Route path='addCategory' element={< AddCategory />} />
+              <Route path='addBrand' element={<AddBrand/>} />
             </Route>
             {/*<Route path='/LogOut' element={<LogOut/>}/> */}
             <Route path="*" element={<h1>404 Not Found</h1>} />
