@@ -28,6 +28,7 @@ const AddCategory = () => {
     const {mutate: addCategory, isLoadingCategory,isErrorCategory, error} = useMutation(addCategoryDatabase, {
         onSuccess: ()=>{
           queryClient.invalidateQueries('category');
+          navigate('/AdminPanel/add')
           alert('Category added successfully!');
         },
         onError: (error)=> {

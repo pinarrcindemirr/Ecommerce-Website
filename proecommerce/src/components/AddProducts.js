@@ -69,7 +69,7 @@ const AddProducts = () => {
         setProductInfo({ ...productInfo, category: { ...productInfo.category, categoryId: parseInt(value) } });
       }
     } else if (name === "brandId") {
-      if(name === "brandId"){
+      if(name === "addBrand"){
         navigate('/AdminPanel/addBrand');
       }else{
         setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: parseInt(value) } });

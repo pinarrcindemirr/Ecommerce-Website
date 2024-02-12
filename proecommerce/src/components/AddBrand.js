@@ -27,6 +27,7 @@ const AddBrand = () => {
     const {mutate: addBrand, isLoadingBrand,isErrorBrand, error} = useMutation(addBrandDatabase, {
         onSuccess: ()=>{
           queryClient.invalidateQueries('brand');
+          navigate('/AdminPanel/add')
           alert('Brand added successfully!');
         },
         onError: (error)=> {
