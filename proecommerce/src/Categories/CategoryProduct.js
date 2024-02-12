@@ -47,7 +47,7 @@ const CategoryProduct = () => {
                                 <Card.Text>
                                     Price: ${product.price}
                                 </Card.Text>
-                                <Button variant='primary'> Buy </Button>
+                                <Button variant='primary' className="card-button"> Buy </Button>
                             </Card.Body>
                         </Card>
                     ))}

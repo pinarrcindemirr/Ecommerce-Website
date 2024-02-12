@@ -18,9 +18,11 @@ const NavbarMain = () => {
 
   return (
     <div className='navbar-main'>
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-        <button type="submit"><FaSearch /></button>
+      <div className='search-bar-container'>
+        <div className="search-bar">
+          <input type="text" placeholder="Search" />
+          <button type="submit"><FaSearch /></button>
+        </div>
       </div>
       <div className="navbar-icons">
         <FaShoppingCart className="icon" />

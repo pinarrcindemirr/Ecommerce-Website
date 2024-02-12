@@ -21,21 +21,33 @@
 .search-bar {
   display: flex;
   align-items: center;
-  margin-top: 14px
+  border-radius: 30px;
+
+}
+
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Search bar'ı navbarın geri kalanına genişletmek için */
+  justify-content: center; /* İçeriği yatay eksende ortala */
 }
 
 .search-bar input {
-  padding: 5px 10px;
-  margin-right: 5px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
   border: 1px solid #ccc;
+  width: 500px; /* Input alanının istediğiniz genişliği */
+  border-radius: 20px; /* Kenarları yuvarlaklaştırmak için */
 }
 
 .search-bar button {
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   background-color: #333;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 20px; /* Butonun kenarlarını yuvarlaklaştırmak için */
 }
 
 .icon {
@@ -140,16 +152,6 @@
   padding: 0.5rem;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .navbar-icons {
   position: relative;
   display: flex;
@@ -238,6 +240,14 @@
   font-size: .875rem; /* Metin boyutu */
   color: #666; /* Metin rengi */
   margin-bottom: 1rem; /* Metinden sonra boşluk */
+}
+
+.card-button-container {
+  display: flex;
+}
+
+.card-button {
+  width: 100%;
 }
 
 .button {
