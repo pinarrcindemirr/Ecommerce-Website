@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 18vh;
-  background-color: #333;
+  background-color: hwb(8 27% 17%);
   color: white;
   padding: 15px;
   overflow-y: auto;
@@ -13,8 +13,8 @@
 
 .active-link {
   /* Aktif link için ekstra stiller */
-  background-color: #007bff; /* Mavi arka plan rengi */
-  color: white;
+  background-color: white;
+  color: black;
   padding: 10px;
 }
 

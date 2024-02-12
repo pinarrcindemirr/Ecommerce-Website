@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   width: 1200px; /* Sidebar genişliği */
-  height: 5vh; /* Tam ekran yüksekliği */
+  height: 5.5vh; /* Tam ekran yüksekliği */
   position: fixed; /* Sabit pozisyon */
   left: 0; /* Sol tarafa yasla */
   top: 7%; /* Üst tarafa yasla */
@@ -20,6 +20,7 @@
 .search-bar {
   display: flex;
   align-items: center;
+  margin-top: 20px
 }
 
 .search-bar input {
