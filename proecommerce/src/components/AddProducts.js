@@ -69,12 +69,11 @@ const AddProducts = () => {
         setProductInfo({ ...productInfo, category: { ...productInfo.category, categoryId: parseInt(value) } });
       }
     } else if (name === "brandId") {
-      if(name === "addBrand"){
-        navigate('/AdminPanel/addBrand');
-      }else{
-        setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: parseInt(value) } });
-      }
-     
+        if(value === "addBrand"){
+          navigate('/AdminPanel/addBrand');
+        }else{
+          setProductInfo({ ...productInfo, brand: { ...productInfo.brand, brandId: parseInt(value) } });
+        }
     } else {
       setProductInfo({ ...productInfo, [name]: value });
     }
@@ -95,7 +94,6 @@ const AddProducts = () => {
 
     navigate('/AdminPanel/listProduct')
     addProduct(productInfo);
-    console.log('aaa',productInfo);
 };
 
   return (
@@ -147,7 +145,7 @@ const AddProducts = () => {
                   onChange={handleInputChange}
                 >
                   <option value="">Selecet Brand </option>
-                  <option className='add-func-option' value="addCategory">+ Add Brand</option>
+                  <option className='add-func-option' value="addBrand">+ Add Brand</option>
                   {isLoadingBrands ? (
                     <option>Loading...</option>
                   ) : isErrorBrands ? (

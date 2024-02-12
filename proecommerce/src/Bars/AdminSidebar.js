@@ -10,11 +10,6 @@ const AdminSidebar = () => {
           className={({ isActive }) => isActive ? 'active-link' : 'link'}
           > Product List 
       </NavLink>
-      <NavLink 
-        to="/AdminPanel/add"
-        className={({ isActive }) => isActive ? 'active-link' : 'link'}
-        > Add 
-     </NavLink>
     </div>
   );
 };

@@ -53,7 +53,6 @@ function App() {
               <Route path='addCategory' element={< AddCategory />} />
               <Route path='addBrand' element={<AddBrand/>} />
             </Route>
-            {/*<Route path='/LogOut' element={<LogOut/>}/> */}
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
