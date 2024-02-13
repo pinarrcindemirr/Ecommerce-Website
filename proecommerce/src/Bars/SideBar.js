@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useQuery } from 'react-query';
@@ -6,10 +6,10 @@ import './sideBar.css'
 
 
 const SideBar = ({ onSelectCategory }) => {
-  const [category, setCategory] = useState([]);
+  //const [category, setCategory] = useState([]);
 
   const {isLoading, isError,data,error}=useQuery('category', ()=>
-    axios.get('http://10.28.60.26:9091/category/listAllCategories')
+    axios.get('http://10.28.60.33:9091/category/listAllCategories')
     .then(response => response.data.data)
   )
 

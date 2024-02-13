@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Bars/Navbar';
-import NavbarMain from '../Bars/NavbarMain';
+import AdminNavbar from '../Bars/adminNavbar';
 import { useParams , useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import AdminSidebar from '../Bars/AdminSidebar';
@@ -27,14 +27,14 @@ const UpdateProducts = () => {
   });
 
   const fetchCategories = async () => {
-    const response = await axios.get('http://10.28.60.26:9091/category/listAllCategories'); 
+    const response = await axios.get('http://10.28.60.33:9091/category/listAllCategories'); 
     return response.data.data;
   };
 
   const { data: categories, isLoading, isError } = useQuery('category', fetchCategories);
 
   const fetchBrands = async () => {
-    const response = await axios.get('http://10.28.60.26:9091/brand/listAllBrands');
+    const response = await axios.get('http://10.28.60.33:9091/brand/listAllBrands');
     return response.data.data;
   };
 
@@ -42,7 +42,7 @@ const UpdateProducts = () => {
 
   const fetchProduct = async () =>{
     try {
-      const response = await axios.get(`http://10.28.60.26:9091/product/findProductById/${productId}`);
+      const response = await axios.get(`http://10.28.60.33:9091/product/findProductById/${productId}`);
       setProductInfo(response.data.data);
     }catch(error){
       console.error('Failed to fetch product details:', error);
@@ -58,7 +58,7 @@ const UpdateProducts = () => {
   },[productId]);
 
   const updateProduct= useMutation(newProductInfo => {
-    return axios.put(`http://10.28.60.26:9091/product/updateProduct`,newProductInfo)
+    return axios.put(`http://10.28.60.33:9091/product/updateProduct`,newProductInfo)
   },{
     onSuccess: () =>{
       queryClient.invalidateQueries(['product', productId])
@@ -101,7 +101,7 @@ const UpdateProducts = () => {
 
   return (
     <div className='admin-func'>
-       <NavbarMain/>
+       <AdminNavbar/>
         <Navbar/>
         <aside className="sidebar">
           <AdminSidebar/>

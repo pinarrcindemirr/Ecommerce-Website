@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Bars/Navbar';
-import NavbarMain from '../Bars/NavbarMain';
+import AdminNavbar from '../Bars/adminNavbar';
 import { useParams , useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import AdminSidebar from '../Bars/AdminSidebar';
@@ -18,7 +18,7 @@ const AddCategory = () => {
     const addCategoryDatabase= async (category) => {
         const response = await axios({
           method: 'post',
-          url: 'http://10.28.60.26:9091/category/addCategory',
+          url: 'http://10.28.60.33:9091/category/addCategory',
           data: category,
           headers: {'Content-Type': 'application/json'}
         });
@@ -59,7 +59,7 @@ const AddCategory = () => {
 
   return (
     <div className='admin-func'>
-       <NavbarMain/>
+       <AdminNavbar/>
         <Navbar/>
         <aside className="sidebar">
           <AdminSidebar/>

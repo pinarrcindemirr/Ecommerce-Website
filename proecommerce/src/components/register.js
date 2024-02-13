@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const mutation = useMutation(newUserInfo => {
-        return fetch("http://10.28.60.26:9091/user/register", {
+        return fetch("http://10.28.60.33:9091/user/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

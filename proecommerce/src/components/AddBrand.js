@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from '../Bars/Navbar';
-import NavbarMain from '../Bars/NavbarMain';
-import { useParams , useNavigate} from 'react-router-dom';
+import AdminNavbar from '../Bars/adminNavbar';
+import { useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import AdminSidebar from '../Bars/AdminSidebar';
-import { useMutation, useQueryClient, useQuery, QueryClient } from 'react-query';
+import { useMutation, useQueryClient} from 'react-query';
 import axios from 'axios';
 
 const AddBrand = () => {
@@ -17,7 +17,7 @@ const AddBrand = () => {
     const addBrandDatabase= async (brand) => {
         const response = await axios({
           method: 'post',
-          url: 'http://10.28.60.26:9091/brand/addBrand',
+          url: 'http://10.28.60.33:9091/brand/addBrand',
           data: brand,
           headers: {'Content-Type': 'application/json'}
         });
@@ -48,7 +48,7 @@ const AddBrand = () => {
 
   return (
     <div className='admin-func'>
-       <NavbarMain/>
+       <AdminNavbar/>
         <Navbar/>
         <aside className="sidebar">
           <AdminSidebar/>

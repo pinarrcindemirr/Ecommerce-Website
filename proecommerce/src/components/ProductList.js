@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Bars/Navbar';
-import NavbarMain from '../Bars/NavbarMain';
+import AdminNavbar from '../Bars/adminNavbar';
 import { useParams , useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import './Table.css'
@@ -21,14 +21,14 @@ const ProductList = () => {
   const [brands, setBrands] = useState([])
 
   const listProducts = async () => {
-    const response = await axios.get('http://10.28.60.26:9091/product/listAllProducts'); 
+    const response = await axios.get('http://10.28.60.33:9091/product/listAllProducts'); 
     return response.data.data;
   };
 
   const { data, isLoading, isError, error } = useQuery('products', listProducts);
 
   const deleteProduct = useMutation(productId => {
-    return axios.delete(`http://10.28.60.26:9091/product/deleteProduct/${productId}`);
+    return axios.delete(`http://10.28.60.33:9091/product/deleteProduct/${productId}`);
   }, {
     onSuccess: () => {
       queryClient.invalidateQueries('products');
@@ -55,7 +55,7 @@ if (isError) return <div>Error: {error.message}</div>;
 
   return (
     <div>
-       <NavbarMain/>
+       <AdminNavbar/>
         <Navbar/>
         <aside className="sidebar">
           <AdminSidebar/>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Bars/Navbar';
-import NavbarMain from '../Bars/NavbarMain';
+import AdminNavbar from '../Bars/adminNavbar';
 import { useParams , useNavigate} from 'react-router-dom';
 import './AdminFunc.css'
 import AdminSidebar from '../Bars/AdminSidebar';
@@ -24,14 +24,14 @@ const AddProducts = () => {
   });
 
   const fetchCategories = async () => {
-    const response = await axios.get('http://10.28.60.26:9091/category/listAllCategories'); 
+    const response = await axios.get('http://10.28.60.33:9091/category/listAllCategories'); 
     return response.data.data;
   };
 
   const { data: categories, isLoading, isError } = useQuery('category', fetchCategories);
 
   const fetchBrands = async () => {
-    const response = await axios.get('http://10.28.60.26:9091/brand/listAllBrands');
+    const response = await axios.get('http://10.28.60.33:9091/brand/listAllBrands');
     return response.data.data;
   };
 
@@ -41,7 +41,7 @@ const AddProducts = () => {
   const addProductDatabase= async (product) => {
     const response = await axios({
       method: 'post',
-      url: 'http://10.28.60.26:9091/product/addProduct',
+      url: 'http://10.28.60.33:9091/product/addProduct',
       data: product,
       headers: {'Content-Type': 'application/json'}
     });
@@ -98,7 +98,7 @@ const AddProducts = () => {
 
   return (
     <div className='admin-func'>
-       <NavbarMain/>
+       <AdminNavbar/>
         <Navbar selectedCategory={categoryName}/>
         <aside className="sidebar">
           <AdminSidebar/>
