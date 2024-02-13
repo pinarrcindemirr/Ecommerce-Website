@@ -70,7 +70,9 @@ const NavbarMain = () => {
         </form>
       </div>
       <div className="navbar-icons">
-        <FaShoppingCart className="icon" />
+        <Link to="/Basket" className="icon">
+          <FaShoppingCart style={{ color: 'white' }} />
+        </Link>
         <div className="profile-icon" onClick={toggleProfileDropdown}>
             <FaUser className="icon" />
             {isProfileOpen && (

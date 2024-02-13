@@ -25,6 +25,7 @@ import {
   Route,
   Navigate 
 } from "react-router-dom";
+import Basket from './components/Basket';
 
 
 const queryClient = new QueryClient();
@@ -38,13 +39,8 @@ function App() {
             <Route path='/Register' element={<Register/>}/>
             <Route path='/HomePage' element={<HomePage/>}/>
             <Route path="/categories/:categoryId" element={<CategoryProduct />} />
-            <Route path='/Categories/Electronics' element={<ElectroCat/>}/>
-            <Route path='/Categories/BabyToys' element={<BabyCategory/>}/>
-            <Route path='/Categories/Fashion' element={<FashionCategory/>}/>
-            <Route path='/Categories/Food' element={<FoodCategory/>}/>
-            <Route path='/Categories/Cloths' element={<ClothesCategory/>}/>
-            <Route path='/Categories/GameAssesories' element={<GameCategory/>}/>
-            <Route path='/Categories/HealthBeauty' element={<HealthBeautyCategory/>}/>
+            <Route path='/Categories/SearchCategory' element={<SearchCategory/>}/>
+            <Route path='/Basket' element={<Basket/>}/>
             <Route path='/AdminPanel' element={<AdminPanel/>}>
               <Route index element={<Navigate replace to="listProduct"/>} />
               <Route path='listProduct' element={<ProductList/>}/>
@@ -54,7 +50,6 @@ function App() {
               <Route path='addCategory' element={< AddCategory />} />
               <Route path='addBrand' element={<AddBrand/>} />
             </Route>
-            <Route path='/Categories/SearchCategory' element={<SearchCategory/>}/>
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
@@ -64,3 +59,12 @@ function App() {
 }
 
   export default App;
+/*
+ <Route path='/Categories/Electronics' element={<ElectroCat/>}/>
+ <Route path='/Categories/BabyToys' element={<BabyCategory/>}/>
+ <Route path='/Categories/Fashion' element={<FashionCategory/>}/>
+ <Route path='/Categories/Food' element={<FoodCategory/>}/>
+ <Route path='/Categories/Cloths' element={<ClothesCategory/>}/>
+ <Route path='/Categories/GameAssesories' element={<GameCategory/>}/>
+ <Route path='/Categories/HealthBeauty' element={<HealthBeautyCategory/>}/>
+*/
