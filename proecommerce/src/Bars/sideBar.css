@@ -91,14 +91,14 @@
 
 .sidebar {
   width: 150px; /* Sidebar genişliği */
-  height: 90vh; /* Tam ekran yüksekliği */
+  height: 110vh; /* Tam ekran yüksekliği */
   position: fixed; /* Sabit pozisyon */
   left: 0; /* Sol tarafa yasla */
   top: 18vh; /* Üst tarafa yasla */
   background-color: hwb(8 27% 17%); /* Koyu arka plan rengi */
   color: white; /* Metin rengi */
   padding: 15px; /* İç boşluk */
-  overflow-y: auto; /* Dikey kaydırma */
+  overflow-y:auto; /* Dikey kaydırma */
 }
 /* Sidebar Başlık */
 .sidebar-header {
@@ -239,6 +239,7 @@
   font-size: .875rem; /* Metin boyutu */
   color: #666; /* Metin rengi */
   margin-bottom: 1rem; /* Metinden sonra boşluk */
+  display: block; /* Bu, span etiketlerini alt alta sıralar */
 }
 
 .card-button-container {
@@ -312,4 +313,25 @@
 .coupon-label {
   background-color: #dc3545; /* Arka plan rengi */
   color: #fff; /* Metin*/
+}
+
+.no-products-alert {
+  color: white; /* Metin rengi beyaz */
+  background-color: hwb(8 27% 17%); /* Arka plan kırmızı */
+  border: 1px solid #ffffff; /* Beyaz çerçeve */
+  padding: 20px; /* İç boşluk */
+  margin-top: 50px; /* Üstten boşluk */
+  text-align: center; /* Metni ortala */
+  border-radius: 10px; /* Kenarları yuvarlak yap */
+  font-weight: bold; /* Kalın metin */
+  font-size: 1.2rem; /* Metin boyutu */
+}
+
+/* Ekranın ortasına hizalamak için kullanılan stil */
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Yükseklik */
+  margin: auto;
 }

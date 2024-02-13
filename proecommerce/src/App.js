@@ -17,6 +17,7 @@ import CategoryProduct from './Categories/CategoryProduct';
 import AdminPanel from './components/AdminPanel';
 import AddBrand from './components/AddBrand';
 import AddCategory from './components/AddCategory';
+import SearchCategory from './Categories/SearchCategory';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
@@ -53,6 +54,7 @@ function App() {
               <Route path='addCategory' element={< AddCategory />} />
               <Route path='addBrand' element={<AddBrand/>} />
             </Route>
+            <Route path='/Categories/SearchCategory' element={<SearchCategory/>}/>
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>

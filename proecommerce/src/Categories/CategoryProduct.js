@@ -10,7 +10,6 @@ import axios from 'axios';
 
 const CategoryProduct = () => {
     const navigate = useNavigate();
-    //const products = data.Electronics.products;
     const { categoryId } = useParams();
   
     const { isLoading, isError, data: products, error } = useQuery(['products', categoryId], () =>
@@ -36,24 +35,32 @@ const CategoryProduct = () => {
             <SideBar onSelectCategory={handleSelectCategory}/>
           </aside>
           <main className="main-content">
-              <div className='main'>
-                 <h1>Products</h1>
-                 <div className='container'>
-                    {products.map((product) => (
-                        <Card className='list-category' key={product.productId} >
-                            <Card.Img variant='top' src={product.imageUrl} alt={product.name} />
-                            <Card.Body>
-                                <Card.Title>{product.productName}</Card.Title>
-                                <Card.Text>
-                                    Price: ${product.price}
-                                </Card.Text>
-                                <Button variant='primary' className="card-button"> Buy </Button>
-                            </Card.Body>
-                        </Card>
-                    ))}
-                 </div>
+            <div className='main'>
+              <div className='container'>
+                {products.length > 0 ? (
+                  products.map((product) => (
+                    <Card className='list-category' key={product.productId}>
+                      <Card.Img variant='top' src={product.imageUrl} alt={product.productName} />
+                      <Card.Body>
+                        <Card.Title>{product.productName}</Card.Title>
+                        <Card.Text>
+                          <div>{product.brand.brandName}</div>
+                          <div>Price: ${product.price}</div>
+                        </Card.Text>
+                        <Button variant='primary' className="card-button"> Buy </Button>
+                      </Card.Body>
+                    </Card>
+                  ))
+                ) : (
+                      <div className="centered-container">
+                        <div className="no-products-alert">
+                          No products found.
+                        </div>
+                      </div>                
+                    )}
               </div>
-           </main>
+            </div>
+          </main>
         </div>
       );
 }
