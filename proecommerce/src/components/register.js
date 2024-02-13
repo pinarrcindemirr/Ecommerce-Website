@@ -8,7 +8,8 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
     const [userExists, setUserExists] = useState(false);
     const navigate = useNavigate();
 
@@ -30,33 +31,42 @@ const Register = () => {
         else if (name === 'confirmPassword') setConfirmPassword(value);
     };
 
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]); // Kullanıcının seçtiği dosyayı state'e kaydedin
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const userInfoToSave = { email, username, password, confirmPassword};
+        const userInfoToSave = { email, username, password, confirmPassword };
 
         if (!validateForm(userInfoToSave)) {
             alert('Please make sure all fields are filled out correctly and passwords match.');
             return;
         }
 
-        mutation.mutate( { email, username, password },
-            {
-                onSuccess: (data)=>{
-                    if(data){
-                        console.log('User registered:', data);
-                        setUserExists(false);
-                        navigate('/HomePage');
-                    } else{
+        // Base64'e dönüştürme
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = () => {
+            mutation.mutate(
+                { email, username, password, image: reader.result }, // Base64 formatındaki resmi ekleyin
+                {
+                    onSuccess: (data) => {
+                        if (data) {
+                            console.log('User registered:', data);
+                            setUserExists(false);
+                            navigate('/HomePage');
+                        } else {
+                            setUserExists(true);
+                        }
+                    },
+                    onError: (error) => {
+                        console.error('Error:', error);
                         setUserExists(true);
-                    }
-                },
-                onError: (error)=>{
-                    console.error("Error:", error);
-                    setUserExists(true);
+                    },
                 }
-            }
-        )
-        
+            );
+        };
     };
 
     function validateForm({ username, email, password, confirmPassword }) {
@@ -114,6 +124,12 @@ const Register = () => {
                     onChange={handleChange}
                 />   
             </div>
+            <div>
+                <p>Add Picture</p>
+                <input 
+                    type="file" 
+                    onChange={handleFileChange} /> 
+                </div>
             <div>
                 <button onClick={handleSubmit} type="submit">Create your account</button>
                 {userExists && <div className="error-message">Already have, Try Again</div>}

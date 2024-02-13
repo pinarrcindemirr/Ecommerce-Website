@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import './login.css'
 import {Link,useNavigate} from "react-router-dom";
 import { useMutation } from 'react-query';
+//import { useAuth } from '../AuthContext'; 
 
 const Login = () => {
 
@@ -9,6 +10,7 @@ const Login = () => {
     const [password,setPassword]= useState('');
     const [loginError, setLoginError] = useState("");
     const navigate = useNavigate();
+    //const { setUserId } = useAuth();
 
     const loginMutation = useMutation(loginInfo => {
         return fetch("http://10.28.60.33:9091/user/login", {
@@ -22,6 +24,7 @@ const Login = () => {
         onSuccess: (data) => {
             if (data) {
                 console.log('User logged in:', data);
+                //setUserId(data.userId);
                 navigate('/HomePage');
             } else {
                 setLoginError("Username or password is incorrect.");

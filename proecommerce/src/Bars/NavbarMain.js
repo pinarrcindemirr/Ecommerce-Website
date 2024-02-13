@@ -78,8 +78,8 @@ const NavbarMain = () => {
             {isProfileOpen && (
               <div className="profile-dropdown">
                 <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
-                {/*<div className="dropdown-divider"></div>
-                <Link to="/LogOut" className="dropdown-item" onClick={handleDropdownItemClick}>Log Out</Link>*/}
+                <div className="dropdown-divider"></div>
+                <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
               </div>
             )}
         </div>

@@ -16,6 +16,8 @@
   background-color: #333; /* Koyu arka plan rengi */
   color: white; /* Metin rengi */
   padding: 15px; /* İç boşluk */
+  z-index: 100;
+  position: absolute;
 }
 
 .search-bar {
@@ -165,6 +167,7 @@
 
 .profile-icon {
   position: relative;
+  z-index: 100000;
 }
 
 .profile-dropdown {
@@ -174,8 +177,11 @@
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  width: 200px; /* Ya da ihtiyaca göre ayarlayın */
-  z-index: 1000;
+  height: 20vh;
+  width: 150px; /* Ya da ihtiyaca göre ayarlayın */
+  position: absolute; /* Açılır menünün konumlandırmasını belirler */
+  z-index: 101; /* Bu, açılır menünün diğer öğelerin üstünde görünmesini sağlar */
+
 }
 
 .profile-dropdown .dropdown-item {
