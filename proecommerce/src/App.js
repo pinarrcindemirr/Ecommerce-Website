@@ -13,7 +13,6 @@ import AddBrand from './components/AddBrand';
 import AddCategory from './components/AddCategory';
 import SearchCategory from './Categories/SearchCategory';
 import Profile from './components/Profile/Profile';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,12 +21,25 @@ import {
 } from "react-router-dom";
 import Basket from './components/Basket';
 
+const reducer = (state, action) => {
+  if (action.type === 'user') {
+    return { ...state, user: action.value};
+  } 
+  return state;
+}
 
-const queryClient = new QueryClient();
-function App() {
+const initialState = {
+  user: {
+    username: '',
+    id: 0,
+    email: ''
+  }
+}
+
+const App=()=> {
 
   return (
-    <AppProvider>
+    <AppProvider reducer={reducer} initialState={initialState}>
       <Router>
         <Routes>
             <Route path='/' element={<Login/>}/>

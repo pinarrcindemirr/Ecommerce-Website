@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
 //import { authReducer,initialState } from './authReducer';
-
+/*
 const AuthContext = createContext();
 
 const initialState = {
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children}) => {
 
 //export const useAuth = () => useContext(AuthContext);
 
-/*
+
   const register = async ({ email, username, password, image }) => {
     dispatch({ type: 'AUTH_LOADING' });
     try {

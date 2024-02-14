@@ -1,8 +1,8 @@
-import React, {useState } from 'react'
+import React, {useState , useEffect} from 'react'
 import './login.css'
 import {Link,useNavigate} from "react-router-dom";
 import { useMutation } from 'react-query';
-//import { useAuth } from '../AuthContext'; 
+import { useGlobalState } from '../context/AppProvider';
 
 const Login = () => {
 
@@ -10,8 +10,8 @@ const Login = () => {
     const [password,setPassword]= useState('');
     const [loginError, setLoginError] = useState("");
     const navigate = useNavigate();
-    //const { setUserId } = useAuth();
-
+    const [state,dispatch] = useGlobalState();
+ 
     const loginMutation = useMutation(loginInfo => {
         return fetch("http://10.28.60.29:9091/user/login", {
             method: "POST",
@@ -22,9 +22,17 @@ const Login = () => {
         }).then(response => response.json());
     }, {
         onSuccess: (data) => {
-            if (data) {
+            if (data && data.success) {
                 console.log('User logged in:', data);
-                //setUserId(data.userId);
+                dispatch({
+                    type: 'user',
+                    value:{
+                        id:data.data.id,
+                        username:data.data.username,
+                        email: data.data.email
+                    }
+                })
+                console.log(state.user, 'PINAR');
                 navigate('/HomePage');
             } else {
                 setLoginError("Username or password is incorrect.");

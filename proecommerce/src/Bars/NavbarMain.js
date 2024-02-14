@@ -6,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import { useGlobalState } from '../context/AppProvider';
 
 const NavbarMain = () => {
   const [search, setSearch] = useState('');
   const [searchResult,setSearchResult] =useState([]);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const navigate = useNavigate();
+  const [state,dispatch] = useGlobalState();
 
   const toggleProfileDropdown = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -72,9 +74,11 @@ const NavbarMain = () => {
             <FaUser className="icon" />
             {isProfileOpen && (
               <div className="profile-dropdown">
+                <div className="dropdown-item" style={{ fontWeight: 'bold', textTransform: 'uppercase' }} >{state.user.username}</div>
                 <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
                 <div className="dropdown-divider"></div>
                 <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
+                
               </div>
             )}
         </div>

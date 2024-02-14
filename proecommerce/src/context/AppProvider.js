@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { AuthProvider } from './AuthContext';
 
 const queryClient = new QueryClient();
+const AuthProvider = createContext();
 
-export const AppProvider = ({ children }) => {
+export const AppProvider = ({ children, reducer, initialState }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+      <AuthProvider.Provider value={useReducer(reducer, initialState)}>
         {children}
-      </AuthProvider>
+      </AuthProvider.Provider>
     </QueryClientProvider>
   );
 };
+
+export const useGlobalState =()=> useContext(AuthProvider);
