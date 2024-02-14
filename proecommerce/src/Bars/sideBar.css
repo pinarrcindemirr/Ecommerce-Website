@@ -75,7 +75,6 @@
 }
 .main{
   width: 1040px; 
-
   position: fixed; /* Sabit pozisyon */
   left: 190px; /* Sol tarafa yasla */
   top: 18vh; /* Üst tarafa yasla */
@@ -168,33 +167,38 @@
 }
 
 .profile-dropdown {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 100%; /* İkonun altında */
   right: 0;
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  height: 20vh;
-  width: 150px; /* Ya da ihtiyaca göre ayarlayın */
-  position: absolute; /* Açılır menünün konumlandırmasını belirler */
-  z-index: 101; /* Bu, açılır menünün diğer öğelerin üstünde görünmesini sağlar */
-
+  width: 200px; /* Ya da ihtiyaca göre ayarlayın */
+  z-index: 100; /* Diğer öğelerin üstünde görünmesini sağlar */
 }
 
-.profile-dropdown .dropdown-item {
-  padding: 1rem;
+.dropdown-item {
+  padding: 10px 15px;
   color: black;
   text-decoration: none;
   display: block;
+  border-bottom: 1px solid #eceeef; /* Alt sınırları ayır */
 }
 
-.profile-dropdown .dropdown-item:hover {
-  background-color: #f8f9fa;
+.dropdown-item:last-child {
+  border-bottom: none; /* Son öğenin alt çizgisini kaldır */
 }
 
-.profile-dropdown .dropdown-divider {
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Üzerine gelince arka plan rengi */
+  cursor: pointer;
+}
+
+.dropdown-divider {
   height: 1px;
-  margin: 0.5rem 0;
+  margin: 0;
   overflow: hidden;
   background-color: #eceeef;
 }

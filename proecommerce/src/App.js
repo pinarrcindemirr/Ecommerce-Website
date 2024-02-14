@@ -1,14 +1,8 @@
 import React from 'react'
+import { AppProvider } from './context/AppProvider';
 import Login from './components/login';
 import Register from './components/register';
 import HomePage from './components/HomePage';
-import ElectroCat from './Categories/ElectroCat';
-import BabyCategory from './Categories/BabyCategory';
-import ClothesCategory from './Categories/ClothesCategory';
-import FashionCategory from './Categories/FashionCategory';
-import FoodCategory from './Categories/FoodCategory';
-import GameCategory from './Categories/GameCategory';
-import HealthBeautyCategory from './Categories/HealthBeautyCategory';
 import AddProducts from './components/AddProducts';
 import DeleteProduct from './components/DeleteProduct';
 import UpdateProduct from './components/UpdateProduct';
@@ -33,7 +27,7 @@ const queryClient = new QueryClient();
 function App() {
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <AppProvider>
       <Router>
         <Routes>
             <Route path='/' element={<Login/>}/>
@@ -56,13 +50,24 @@ function App() {
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
-    </QueryClientProvider>
+    </AppProvider>
       
   );
 }
 
   export default App;
 /*
+
+
+//import ElectroCat from './Categories/ElectroCat';
+//import BabyCategory from './Categories/BabyCategory';
+//import ClothesCategory from './Categories/ClothesCategory';
+//import FashionCategory from './Categories/FashionCategory';
+//import FoodCategory from './Categories/FoodCategory';
+//import GameCategory from './Categories/GameCategory';
+//import HealthBeautyCategory from './Categories/HealthBeautyCategory';
+
+
  <Route path='/Categories/Electronics' element={<ElectroCat/>}/>
  <Route path='/Categories/BabyToys' element={<BabyCategory/>}/>
  <Route path='/Categories/Fashion' element={<FashionCategory/>}/>

@@ -26,11 +26,10 @@ const NavbarMain = () => {
   const performSearch = async (searchQuery) => {
     try {
       const response = await axios.get(`http://10.28.60.29:9091/product/search?name=${searchQuery}`);
-      return response.data; // Doğrudan response.data döndürün
+      return response.data;
     } catch (error) {
       console.error('Error:', error);
-      // Hata yakalama için gerekirse burada işlem yapabilirsiniz
-      return { data: [], success: false }; // Hata durumunda boş bir liste döndürün
+      return { data: [], success: false };
     }
   };
   
@@ -38,17 +37,13 @@ const NavbarMain = () => {
     event.preventDefault();
     try {
       const result = await performSearch(search);
-      // result, performSearch'ten dönen veridir ve bir data özelliğine sahip olmalıdır
       if (result.success && result.data.length > 0) {
-        // Başarılı yanıt ve veri varsa işlemleriniz
         navigate(`/Categories/SearchCategory`, { state: { productList: result.data } });
       } else {
-        // Veri yoksa kullanıcıya bilgi ver
         alert('No products found for your search.');
       }
     } catch (error) {
       console.error('Error:', error);
-      // Hata ile ilgili kullanıcıyı bilgilendir
       alert('An error occurred while searching for products.');
     }
   };
