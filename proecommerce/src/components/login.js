@@ -13,7 +13,7 @@ const Login = () => {
     //const { setUserId } = useAuth();
 
     const loginMutation = useMutation(loginInfo => {
-        return fetch("http://10.28.60.33:9091/user/login", {
+        return fetch("http://10.28.60.29:9091/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

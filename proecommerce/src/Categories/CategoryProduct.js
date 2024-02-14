@@ -13,7 +13,7 @@ const CategoryProduct = () => {
     const { categoryId } = useParams();
   
     const { isLoading, isError, data: products, error } = useQuery(['products', categoryId], () =>
-      axios.get(`http://10.28.60.33:9091/product/filterByCategory/${+categoryId}`)
+      axios.get(`http://10.28.60.29:9091/product/filterByCategory/${+categoryId}`)
         .then(response => response.data.data),
       {
         enabled: !!categoryId,

@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 
 
 const SearchCategory = () => {
-    const location = useLocation(); // useLocation hook'unu çağırın
+    const location = useLocation();
     const productList = location.state?.productList || []; 
 
     return (

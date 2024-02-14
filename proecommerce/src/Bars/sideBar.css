@@ -8,16 +8,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1205px; /* Sidebar genişliği */
-  height: 6vh; /* Tam ekran yüksekliği */
+  background-color: #333;
+  padding: 0.5rem;
   position: fixed; /* Sabit pozisyon */
-  left: 0; /* Sol tarafa yasla */
-  top: 7%; /* Üst tarafa yasla */
-  background-color: #333; /* Koyu arka plan rengi */
-  color: white; /* Metin rengi */
-  padding: 15px; /* İç boşluk */
-  z-index: 100;
-  position: absolute;
+  width: 100%; /* Genişliği ekran genişliği ile aynı yapın */
+  top: 7vh; /* Üstten sıfır pozisyonda başlasın */
+  left: 0; /* Soldan sıfır pozisyonda başlasın */
+  z-index: 10; /* Z-index ile diğer öğelerin üstünde yer alsın */
 }
 
 .search-bar {

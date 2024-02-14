@@ -25,7 +25,7 @@ const NavbarMain = () => {
   };
   const performSearch = async (searchQuery) => {
     try {
-      const response = await axios.get(`http://10.28.60.33:9091/product/search?name=${searchQuery}`);
+      const response = await axios.get(`http://10.28.60.29:9091/product/search?name=${searchQuery}`);
       return response.data; // Doğrudan response.data döndürün
     } catch (error) {
       console.error('Error:', error);
