@@ -24,7 +24,9 @@ import Basket from './components/Basket';
 const reducer = (state, action) => {
   if (action.type === 'user') {
     return { ...state, user: action.value};
-  } 
+  } else if(action.type ==='logout'){
+    return {...state, user: {username: '', id: 0, email:''}}
+  }
   return state;
 }
 

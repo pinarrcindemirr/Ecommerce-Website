@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import './sideBar.css'
 import { useNavigate } from 'react-router-dom';
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { useGlobalState } from '../context/AppProvider';
 
 const AdminNavbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const navigate = useNavigate();
+  const [state,dispatch] = useGlobalState();
 
   const toggleProfileDropdown = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -32,6 +34,7 @@ const goBack = () => {
             <FaUser className="icon" />
             {isProfileOpen && (
               <div className="profile-dropdown">
+                 <div className="dropdown-item" style={{ fontWeight: 'bold', textTransform: 'uppercase' }} >{state.user.username}</div>
                 <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
                 <div className="dropdown-divider"></div>
                 <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
