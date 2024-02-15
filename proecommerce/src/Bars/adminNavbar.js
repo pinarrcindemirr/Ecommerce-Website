@@ -11,6 +11,12 @@ const AdminNavbar = () => {
   const navigate = useNavigate();
   const [state,dispatch] = useGlobalState();
 
+  const handleLogout = () => {
+    dispatch({ type: 'logout' });
+    navigate('/');
+  };
+
+
   const toggleProfileDropdown = () => {
     setIsProfileOpen(!isProfileOpen);
   };
@@ -38,7 +44,7 @@ const goBack = () => {
                 <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
                 <div className="dropdown-divider"></div>
                 <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
-                {/*<Link to="/LogOut" className="dropdown-item" onClick={handleDropdownItemClick}>Log Out</Link>*/}
+                <div className="dropdown-item" onClick={handleLogout}> Logout</div>
               </div>
             )}
         </div>

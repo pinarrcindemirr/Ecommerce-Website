@@ -29,7 +29,8 @@ const Login = () => {
                     value:{
                         id:data.data.id,
                         username:data.data.username,
-                        email: data.data.email
+                        email: data.data.email,
+                        imagine: data.data.imagine
                     }
                 })
                 navigate('/HomePage');

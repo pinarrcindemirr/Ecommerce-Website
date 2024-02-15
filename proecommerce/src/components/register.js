@@ -55,7 +55,7 @@ const Register = () => {
                         if (data) {
                             console.log('User registered:', data);
                             setUserExists(false);
-                            navigate('/HomePage');
+                            navigate('/');
                         } else {
                             setUserExists(true);
                         }
