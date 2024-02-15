@@ -24,14 +24,14 @@ const AddProducts = () => {
   });
 
   const fetchCategories = async () => {
-    const response = await axios.get('http://10.28.60.29:9091/category/listAllCategories'); 
+    const response = await axios.get('http://10.28.60.27:9091/category/listAllCategories'); 
     return response.data.data;
   };
 
   const { data: categories, isLoading, isError } = useQuery('category', fetchCategories);
 
   const fetchBrands = async () => {
-    const response = await axios.get('http://10.28.60.29:9091/brand/listAllBrands');
+    const response = await axios.get('http://10.28.60.27:9091/brand/listAllBrands');
     return response.data.data;
   };
 
@@ -41,7 +41,7 @@ const AddProducts = () => {
   const addProductDatabase= async (product) => {
     const response = await axios({
       method: 'post',
-      url: 'http://10.28.60.29:9091/product/addProduct',
+      url: 'http://10.28.60.27:9091/product/addProduct',
       data: product,
       headers: {'Content-Type': 'application/json'}
     });

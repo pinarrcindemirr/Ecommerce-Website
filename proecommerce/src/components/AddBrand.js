@@ -17,7 +17,7 @@ const AddBrand = () => {
     const addBrandDatabase= async (brand) => {
         const response = await axios({
           method: 'post',
-          url: 'http://10.28.60.29:9091/brand/addBrand',
+          url: 'http://10.28.60.27:9091/brand/addBrand',
           data: brand,
           headers: {'Content-Type': 'application/json'}
         });

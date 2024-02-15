@@ -15,6 +15,11 @@ const NavbarMain = () => {
   const navigate = useNavigate();
   const [state,dispatch] = useGlobalState();
 
+  const handleLogout = () => {
+    dispatch({ type: 'logout' });
+    navigate('/');
+  };
+
   const toggleProfileDropdown = () => {
     setIsProfileOpen(!isProfileOpen);
   };
@@ -27,7 +32,7 @@ const NavbarMain = () => {
   };
   const performSearch = async (searchQuery) => {
     try {
-      const response = await axios.get(`http://10.28.60.29:9091/product/search?name=${searchQuery}`);
+      const response = await axios.get(`http://10.28.60.27:9091/product/search?name=${searchQuery}`);
       return response.data;
     } catch (error) {
       console.error('Error:', error);
@@ -78,7 +83,7 @@ const NavbarMain = () => {
                 <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
                 <div className="dropdown-divider"></div>
                 <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
-                
+                <div className="dropdown-item" onClick={handleLogout}> Logout</div>
               </div>
             )}
         </div>

@@ -13,7 +13,7 @@ const Login = () => {
     const [state,dispatch] = useGlobalState();
  
     const loginMutation = useMutation(loginInfo => {
-        return fetch("http://10.28.60.29:9091/user/login", {
+        return fetch("http://10.28.60.27:9091/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +32,6 @@ const Login = () => {
                         email: data.data.email
                     }
                 })
-                console.log(state.user, 'PINAR');
                 navigate('/HomePage');
             } else {
                 setLoginError("Username or password is incorrect.");

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppProvider } from './context/AppProvider';
+import { AppProvider, useGlobalState} from './context/AppProvider';
 import Login from './components/login';
 import Register from './components/register';
 import HomePage from './components/HomePage';
@@ -21,24 +21,37 @@ import {
 } from "react-router-dom";
 import Basket from './components/Basket';
 
-const reducer = (state, action) => {
-  if (action.type === 'user') {
-    return { ...state, user: action.value};
-  } else if(action.type ==='logout'){
-    return {...state, user: {username: '', id: 0, email:''}}
-  }
-  return state;
-}
+const ProtectedRoute = ({ children }) => {
+  const [state] = useGlobalState();
+  const isAuthenticated = state.user && state.user.id; // id varsa kullanıcı giriş yapmış kabul ediliyor.
 
-const initialState = {
-  user: {
-    username: '',
-    id: 0,
-    email: ''
+  if (!isAuthenticated) {
+    alert("You must be logged in to view this page.")
+    return <Navigate to="/" />;
   }
-}
+
+  return children;
+};
 
 const App=()=> {
+
+  const reducer = (state, action) => {
+    if (action.type === 'user') {
+      return { ...state, user: action.value};
+    } else if(action.type === 'logout'){
+      return { ...state, user: { username: '', id: 0, email: '' } };
+    }
+    return state;
+  }
+  
+  const initialState = {
+    user: {
+      username: '',
+      id: 0,
+      email: ''
+    }
+  }
+  
 
   return (
     <AppProvider reducer={reducer} initialState={initialState}>
@@ -46,7 +59,14 @@ const App=()=> {
         <Routes>
             <Route path='/' element={<Login/>}/>
             <Route path='/Register' element={<Register/>}/>
-            <Route path='/HomePage' element={<HomePage/>}/>
+            <Route 
+              path='/HomePage' 
+              element={
+                <ProtectedRoute>
+                  <HomePage />
+                </ProtectedRoute>
+              } 
+            />
             <Route path="/categories/:categoryId" element={<CategoryProduct />} />
             <Route path='/Categories/SearchCategory' element={<SearchCategory/>}/>
             <Route path='/Basket' element={<Basket/>}/>
@@ -71,6 +91,12 @@ const App=()=> {
 
   export default App;
 /*
+
+else if(action.type){
+
+  }else if(action.type ==='logout'){
+    return {...state, user: {username: '', id: 0, email:''}}
+  }
 
 
 //import ElectroCat from './Categories/ElectroCat';

@@ -9,7 +9,7 @@ const SideBar = ({ onSelectCategory }) => {
   //const [category, setCategory] = useState([]);
 
   const {isLoading, isError,data,error}=useQuery('category', ()=>
-    axios.get('http://10.28.60.29:9091/category/listAllCategories')
+    axios.get('http://10.28.60.27:9091/category/listAllCategories')
     .then(response => response.data.data)
   )
 
