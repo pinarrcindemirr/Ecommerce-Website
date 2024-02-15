@@ -13,6 +13,7 @@ import AddBrand from './components/AddBrand';
 import AddCategory from './components/AddCategory';
 import SearchCategory from './Categories/SearchCategory';
 import Profile from './components/Profile/Profile';
+import ProfilePanel from './Bars/Setting/ProfilePanel';
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,6 +21,8 @@ import {
   Navigate 
 } from "react-router-dom";
 import Basket from './components/Basket';
+import EditEmail from './components/Profile/EditEmail';
+import EditPassword from './components/Profile/EditPassword';
 
 const ProtectedRoute = ({ children }) => {
   const [state] = useGlobalState();
@@ -39,7 +42,7 @@ const App=()=> {
     if (action.type === 'user') {
       return { ...state, user: action.value};
     }else if(action.type === 'logout'){
-      return { ...state, user: { username: '', id: 0, email: '' } };
+      return { ...state, user: { username: '', id: 0, email: '', image: '', password:'' } };
     }
     return state;
   }
@@ -48,7 +51,9 @@ const App=()=> {
     user: {
       username: '',
       id: 0,
-      email: ''
+      email: '',
+      image: '',
+      password:''
     }
   }
   
@@ -72,7 +77,6 @@ const App=()=> {
             <Route path='/Basket' element={<Basket/>}/>
             <Route path='/Profile' element={<Profile/>}/>
             <Route path='/AdminPanel' element={<AdminPanel/>}>
-              
               <Route index element={<Navigate replace to="listProduct"/>} />
               <Route path='listProduct' element={<ProductList/>}/>
               <Route path='add' element={<AddProducts />} />
@@ -80,6 +84,10 @@ const App=()=> {
               <Route path='update/:productId' element={<UpdateProduct />} />
               <Route path='addCategory' element={< AddCategory />} />
               <Route path='addBrand' element={<AddBrand/>} />
+            </Route>
+            <Route path='/ProfilePanel' element={<ProfilePanel/>}>
+                <Route path='EditEmail' element={<EditEmail/>}/>
+                <Route path='EditPassword' element={<EditPassword/>}/>
             </Route>
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>

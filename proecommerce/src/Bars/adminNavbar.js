@@ -41,9 +41,9 @@ const goBack = () => {
             {isProfileOpen && (
               <div className="profile-dropdown">
                  <div className="dropdown-item" style={{ fontWeight: 'bold', textTransform: 'uppercase' }} >{state.user.username}</div>
-                <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Admin Control</Link>
+                <Link to="/AdminPanel" className="dropdown-item" onClick={handleDropdownItemClick}>Product Control</Link>
                 <div className="dropdown-divider"></div>
-                <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Profile</Link>
+                <Link to="/Profile" className="dropdown-item" onClick={handleDropdownItemClick}>Settings</Link>
                 <div className="dropdown-item" onClick={handleLogout}> Logout</div>
               </div>
             )}

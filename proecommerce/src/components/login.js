@@ -30,9 +30,11 @@ const Login = () => {
                         id:data.data.id,
                         username:data.data.username,
                         email: data.data.email,
-                        imagine: data.data.imagine
+                        image: data.data.image,
+                        password: data.data.password
                     }
                 })
+                console.log(state.user);
                 navigate('/HomePage');
             } else {
                 setLoginError("Username or password is incorrect.");

@@ -1,0 +1,97 @@
+/* Profile.css */
+
+.profile-main {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px; /* Üstten biraz boşluk ekleyin */
+  }
+  .profile-title {
+    position: relative; /* Pozisyonu belirleyin */
+    z-index: 10; /* Diğer elementlerin üzerinde görünmesini sağlayın */
+    margin-bottom: -20px; /* Başlığı yukarı çekin */
+    background: white; /* Arkaplan rengi */
+    display: inline-block; /* Blok yerine satır içi blok yapın */
+    padding: 0 10px; /* Sağdan ve soldan padding verin */
+  }
+  
+  .user-profile-card {
+    width: 100%;
+    max-width: 350px; /* Kartın maksimum genişliğini ayarlayın */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Kart için gölge efekti ekleyin */
+    border-radius: 10px; /* Kenarları yuvarlaklaştırın */
+    overflow: hidden; /* İçerik kartın dışına taşarsa kesilsin */
+    text-align: center; /* Metinleri ortala */
+  }
+  
+  .profile-title {
+    position: relative; /* Pozisyonu belirleyin */
+    z-index: 10; /* Diğer elementlerin üzerinde görünmesini sağlayın */
+    margin-bottom: -20px; /* Başlığı yukarı çekin */
+    background: white; /* Arkaplan rengi */
+    display: inline-block; /* Blok yerine satır içi blok yapın */
+    padding: 0 10px; /* Sağdan ve soldan padding verin */
+  }
+  
+  .profile-image {
+    width: 120px; /* Resmin genişliği */
+    height: 120px; /* Resmin yüksekliği */
+    border-radius: 50%;
+    border: 4px solid white; /* Resim etrafına beyaz bir sınır ekleyin */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Resim için gölge efekti ekleyin */
+  }
+  
+  .change-picture-btn, .delete-picture-btn {
+    display: block; /* Blok seviyesinde eleman yap */
+    width: 100%; /* Genişliği kapsayıcıya uydur */
+    margin: 10px 0; /* Üst ve alttan boşluk ekle */
+  }
+  
+  .user-info-form {
+    padding: 20px; /* İç padding */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Form grupları arası boşluk */
+  }
+  
+  .form-label {
+    display: block; /* Blok seviyesinde etiket */
+    text-align: left; /* Metni sola hizala */
+    margin-bottom: 5px; /* Etiket ile input arası boşluk */
+  }
+  
+  .form-control {
+    display: block; /* Blok seviyesinde input */
+    width: 100%; /* Genişliği kapsayıcıya uydur */
+    padding: .375rem .75rem; /* İç padding */
+    border: 1px solid #ced4da; /* Kenarlık */
+    border-radius: .25rem; /* Kenar yuvarlaklığı */
+    line-height: 1.5; /* Satır yüksekliği */
+  }
+  
+  
+.profile-image-wrapper {
+    /* ... Mevcut stilleriniz ... */
+    display: flex; /* Flexbox modelini kullanın */
+    flex-direction: column; /* Elemanları dikey olarak hizalayın */
+    align-items: center; /* Merkezde hizalayın */
+    justify-content: center; /* İçeriği merkezde hizalayın */
+  }
+  
+  .profile-image-controls {
+    display: flex; /* Flexbox modelini kullanın */
+    flex-direction: column; /* Elemanları dikey olarak hizalayın */
+    align-items: center; /* Merkezde hizalayın */
+    justify-content: center; /* İçeriği merkezde hizalayın */
+    margin-top: 10px; /* Resimden sonra boşluk bırakın */
+  }
+  
+  .profile-buttons {
+    display: flex; /* Butonları yan yana getir */
+    gap: 5px; /* Butonlar arası boşluk */
+  }
+  
+  /* Buton stillerini düzenleyin */
+  .btn {
+    flex: 1; /* Butonların esnek olmasını sağlayın */
+  }
