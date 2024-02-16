@@ -32,7 +32,7 @@ const NavbarMain = () => {
   };
   const performSearch = async (searchQuery) => {
     try {
-      const response = await axios.get(`http://10.28.60.27:9091/product/search?name=${searchQuery}`);
+      const response = await axios.get(`http://10.28.60.28:9091/product/search?name=${searchQuery}`);
       return response.data;
     } catch (error) {
       console.error('Error:', error);

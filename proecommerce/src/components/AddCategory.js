@@ -18,7 +18,7 @@ const AddCategory = () => {
     const addCategoryDatabase= async (category) => {
         const response = await axios({
           method: 'post',
-          url: 'http://10.28.60.27:9091/category/addCategory',
+          url: 'http://10.28.60.28:9091/category/addCategory',
           data: category,
           headers: {'Content-Type': 'application/json'}
         });

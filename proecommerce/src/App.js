@@ -42,6 +42,7 @@ const App=()=> {
     if (action.type === 'user') {
       return { ...state, user: action.value};
     }else if(action.type === 'logout'){
+      localStorage.removeItem('user');
       return { ...state, user: { username: '', id: 0, email: '', image: '', password:'' } };
     }
     return state;

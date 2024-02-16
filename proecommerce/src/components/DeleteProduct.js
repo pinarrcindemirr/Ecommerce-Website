@@ -16,14 +16,14 @@ const DeleteProducts = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const listProducts = async () => {
-    const response = await axios.get('http://10.28.60.27:9091/product/listAllProducts'); 
+    const response = await axios.get('http://10.28.60.28:9091/product/listAllProducts'); 
     return response.data.data;
   };
 
   const { data, isLoading, isError, error } = useQuery('products', listProducts);
 
   const deleteProducts = async (productIds) => {
-    const response = await axios.delete(`http://10.28.60.27:9091/product/deleteProduct/${productIds}`);
+    const response = await axios.delete(`http://10.28.60.28:9091/product/deleteProduct/${productIds}`);
  
   };
   

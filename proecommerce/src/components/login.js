@@ -13,7 +13,7 @@ const Login = () => {
     const [state,dispatch] = useGlobalState();
  
     const loginMutation = useMutation(loginInfo => {
-        return fetch("http://10.28.60.27:9091/user/login", {
+        return fetch("http://10.28.60.28:9091/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,6 +34,14 @@ const Login = () => {
                         password: data.data.password
                     }
                 })
+                
+                localStorage.setItem('user', JSON.stringify({
+                    id: data.data.id,
+                    username: data.data.username,
+                    email: data.data.email,
+                    image: data.data.image,
+                    password: data.data.password
+                }));
                 console.log(state.user);
                 navigate('/HomePage');
             } else {
