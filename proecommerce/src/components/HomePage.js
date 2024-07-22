@@ -42,7 +42,6 @@ const HomePage = () => {
                       <Card.Title>{category.categoryName}</Card.Title>
                     </Card.Body>
                     <Card.Img variant='top' src={category.categoryImage} alt={category.categoryName}/>
-                    
                   </Link>
                 </Card>
               ))
